@@ -9,8 +9,8 @@ Improvements in this fork
 1. Conversion script to convert bounding box labels to YOLO format
 2. Bounding boxes are now labeled
 3. Dropdown menu for loading directories
-4. Image resize script to resize images to a max height
-5. No need to click "Confirm Class" Every time we switch classes
+4. Image resizing script
+5. No need to click "Confirm Class" to switch classes
 
 Installation
 ------------
@@ -51,6 +51,9 @@ $ python3 main.py
 * Annotations are saved in the following format: `<x1>, <y1>, <x2>, <y2>, <w>, <h>, <class>`, where `x1` `y1` `x2` and `y2` are the top left and bottom right coordinates of the bounding box, `w` and `h` are the width and height of the images, and `class` is the category of the bounding box.  
 
 Figuring out the rest is left as an exercise to the reader.
+#### Help! My image is too big to fit on the screen.
+Run `resize_images.py` to resize all images to a specified max height. Default is 800px.  
+
 #### Converting to YOLO Format (Use `python` instead of `python3` if using virtualenv)
 ```
 $ python3 convert.py
