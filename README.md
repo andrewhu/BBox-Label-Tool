@@ -14,6 +14,7 @@ Improvements in this fork
 
 Installation
 ------------
+<!--
 #### Setting up virtualenv (optional)
 ```
 $ sudo apt-get install python3 python3-venv -y 
@@ -29,7 +30,10 @@ To deactivate,
 (venv) $ deactivate
 ```
 
-#### Install requirements (Use `pip` instead of `pip3` if using virtualenv)
+#### Install requirements (Use `pip` instead of `pip3` if using virtualenv)-->
+**Requirements**  
+* Python 3
+* PIL
 ```
 $ pip3 install -r requirements.txt
 ```
@@ -38,7 +42,7 @@ Usage
 ----------------------------------------
 #### Preparing the images
 Create folders in `Images/` and place your images in them, e.g. `Images/Dogs/`, `Images/Cats/`, etc. There is no strict requirement about what images need to be in which folders; this is just an organizational feature.
-#### Running the labeling tool (Use `python` instead of `python3` if using virtualenv)
+#### Running the labeling tool <!--(Use `python` instead of `python3` if using virtualenv)-->
 ```
 $ python3 main.py 
 ```
@@ -54,7 +58,7 @@ Figuring out the rest is left as an exercise to the reader.
 #### Help! My image is too big to fit on the screen.
 Run `resize_images.py` to resize all images to a specified max height. Default is 800px.  
 
-#### Converting to YOLO Format (Use `python` instead of `python3` if using virtualenv)
+#### Converting to YOLO Format <!--(Use `python` instead of `python3` if using virtualenv)-->
 ```
 $ python3 convert.py
 ```
