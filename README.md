@@ -1,6 +1,5 @@
 BBox-Label-Tool
 ===============
-
 A multi-class bounding box labeling tool
 
 <kbd>
