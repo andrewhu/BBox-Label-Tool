@@ -1,0 +1,11 @@
+# Ignore virtualenv
+venv/
+
+# Ignore non-example images and labels
+Images/*
+!Images/examples/
+Labels/*
+!Labels/examples/
+
+# Ignore formatted labels
+YOLO_Formatted/

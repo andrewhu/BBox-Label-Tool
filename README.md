@@ -1,42 +1,49 @@
 BBox-Label-Tool
 ===============
+A multi-class bounding box labeling tool
 
-A simple tool for labeling object bounding boxes in images, implemented with Python Tkinter.
+![BBox Demo Image](splash.jpg)
 
-**Updates:**
-- 2017.5.21 Check out the ```multi-class``` branch for a multi-class version implemented by @jxgu1016
+Improvements in this fork
+-------------------------
+1. Conversion script to convert bounding box labels to YOLO format
+2. Bounding boxes are now labeled
+3. Dropdown menu for loading directories
+4. Image resize script to resize images to a max height
+5. No need to click "Confirm Class" Every time we switch classes
 
-**Screenshot:**
-![Label Tool](./screenshot.png)
+Installation
+------------
+#### Setting up virtualenv (optional)
+```
+sudo apt-get install python3 python3-venv -y 
+python3 -m venv venv            # Create virtual environment
+. venv/bin/activate             # Activate virtual environment
+```
+To deactivate, just type `deactivate`
 
-Data Organization
------------------
-LabelTool  
-|  
-|--main.py   *# source code for the tool*  
-|  
-|--Images/   *# direcotry containing the images to be labeled*  
-|  
-|--Labels/   *# direcotry for the labeling results*  
-|  
-|--Examples/  *# direcotry for the example bboxes*  
+#### Install requirements (Use `pip` instead of `pip3` if using virtualenv)
+```
+pip3 install -r requirements.txt
+```
 
-Environment
-----------
-- python 2.7
-- python PIL (Pillow)
+Usage 
+----------------------------------------
+#### Preparing the images
+Create folders in `Images/` and place your images in them, e.g. `Images/Dogs/`, `Images/Cats/`, etc. There is no strict requirement about what images need to be in which folders; this is just an organizational feature.
+#### Running the labeling tool (Use `python` instead of `python3` if using virtualenv)
+```
+python3 main.py 
+```
+* To change image directory, use the dropdown menu next to `Image dir:`
+* To change object class, use the dropdown menu under `Class:`
+* Use your mouse to click corner points for the bounding boxes
+* To cancel drawing a bounding box, press `esc`
+* To delete a bounding box, select the box in the list and click the `Delete` button
+* To change images, either use the left/right arrows on your keyboard, `a` or `d`, or click the buttons.
+#### Converting to YOLO Format
+```
+python3 convert.py
+```
+Formatted labels will be saved in the specified folder, default is `YOLO_Formatted/`. Only images in the `Images` folder will have their labels converted. 
 
-Run
--------
-$ python main.py
-
-Usage
------
-0. The current tool requires that **the images to be labeled reside in /Images/001, /Images/002, etc. You will need to modify the code if you want to label images elsewhere**.
-1. Input a folder number (e.g, 1, 2, 5...), and click `Load`. The images in the folder, along with a few example results will be loaded.
-2. To create a new bounding box, left-click to select the first vertex. Moving the mouse to draw a rectangle, and left-click again to select the second vertex.
-  - To cancel the bounding box while drawing, just press `<Esc>`.
-  - To delete a existing bounding box, select it from the listbox, and click `Delete`.
-  - To delete all existing bounding boxes in the image, simply click `ClearAll`.
-3. After finishing one image, click `Next` to advance. Likewise, click `Prev` to reverse. Or, input an image id and click `Go` to navigate to the speficied image.
-  - Be sure to click `Next` after finishing a image, or the result won't be saved. 
