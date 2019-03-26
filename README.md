@@ -34,6 +34,10 @@ To deactivate,
 **Requirements**  
 * Python 3
 * PIL
+
+**Recommended:** setup [virtualenv](https://packaging.python.org/guides/installing-using-pip-and-virtualenv/)  
+
+**Install requirements**
 ```
 $ pip3 install -r requirements.txt
 ```
