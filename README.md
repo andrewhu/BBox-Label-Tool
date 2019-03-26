@@ -48,9 +48,10 @@ $ python3 main.py
 * To cancel drawing a bounding box, press `esc`
 * To delete a bounding box, select the box in the list and click the `Delete` button
 * To change images, either use the left/right arrows on your keyboard, `a` or `d`, or click the buttons.
+* Annotations are saved in the following format: `<x1>, <y1>, <x2>, <y2>, <w>, <h>, <class>`, where `x1` `y1` `x2` and `y2` are the top left and bottom right coordinates of the bounding box, `w` and `h` are the width and height of the images, and `class` is the category of the bounding box.
 #### Converting to YOLO Format
 ```
 $ python3 convert.py
 ```
-Formatted labels will be saved in the specified folder, default is `YOLO_Formatted/`. Only images in the `Images` folder will have their labels converted. 
+Labels will be converted to [YOLO format](https://github.com/AlexeyAB/Yolo_mark/issues/60#issuecomment-401854885). Formatted labels will be saved in the specified folder, default is `YOLO_Formatted/`. Only images in the `Images` folder will have their labels converted. 
 
