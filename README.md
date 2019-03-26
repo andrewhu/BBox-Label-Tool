@@ -1,9 +1,12 @@
 BBox-Label-Tool
 ===============
+
 A multi-class bounding box labeling tool
+
 <kbd>
 ![BBox Demo Image](splash.jpg)
 </kbd>
+
 Improvements in this fork
 -------------------------
 1. Conversion script to convert bounding box labels to YOLO format
