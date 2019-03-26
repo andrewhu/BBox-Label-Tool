@@ -4,7 +4,7 @@ BBox-Label-Tool
 A multi-class bounding box labeling tool
 
 <kbd>
-![BBox Demo Image](splash.jpg)
+<img src="https://github.com/andrewhu/BBox-Label-Tool/raw/master/splash.jpg"/>
 </kbd>
 
 Improvements in this fork
