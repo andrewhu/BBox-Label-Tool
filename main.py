@@ -12,6 +12,7 @@ from tkinter import ttk
 import os
 import glob
 import random
+from shutil import move as move_file
 
 # colors for the bboxes
 COLORS = ['red', 'blue', 'teal', 'magenta', 'green', 'olive',  'black', 'grey', 'cyan']
@@ -88,6 +89,10 @@ class LabelTool():
         self.parent.bind("d", self.nextImage) # press 'd' to go forward
         self.mainPanel.grid(row = 1, column = 1, rowspan = 4, sticky = W+N)
 
+
+      
+
+
         # choose class
         self.classlabel = Label(self.frame, text = "Class:")
         self.classlabel.grid(row=0, column=2, sticky=W+N)
@@ -131,7 +136,13 @@ class LabelTool():
         self.idxEntry = Entry(self.ctrPanel, width = 5)
         self.idxEntry.pack(side = LEFT)
         self.goBtn = Button(self.ctrPanel, text = 'Go', command = self.gotoImage)
-        self.goBtn.pack(side = LEFT)
+        self.goBtn.pack(side = LEFT, padx=5)
+        self.discardImageBtn = Button(self.ctrPanel, text='Discard', command=self.discardImage)
+        self.discardImageBtn.pack(side = LEFT)
+
+          # Current image info
+        self.currentimage = Label(self.ctrPanel)
+        self.currentimage.pack(side= LEFT)
 
 
         # example pannel for illustration
@@ -157,6 +168,21 @@ class LabelTool():
         # for debugging
 ##        self.setImage()
 ##        self.loadDir()
+
+    def discardImage(self, *argv):
+        if not os.path.exists("./Images/_trash"):
+            os.mkdir("./Images/_trash")
+        im_name = self.currentimage['text'].split('\\')[-1]
+
+        move_file(self.currentimage['text'], os.path.join("./Images/_trash", im_name))
+        
+        cur_img = self.cur
+        self.loadDir()
+        self.cur = cur_img
+        if self.cur > self.total:
+            self.cur = self.total
+        self.loadImage()
+
 
     def loadDir(self, dbg = False, *argv):
         if dbg:
@@ -215,6 +241,7 @@ class LabelTool():
     def loadImage(self):
         # load image
         imagepath = self.imageList[self.cur - 1]
+        self.currentimage['text'] = imagepath
         self.img = Image.open(imagepath)
         self.w, self.h = self.img.size
         self.tkimg = ImageTk.PhotoImage(self.img)

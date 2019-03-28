@@ -9,3 +9,7 @@ Labels/*
 
 # Ignore formatted labels
 YOLO_Formatted/
+
+# Ignore thumbnails
+Thumbnails/
+

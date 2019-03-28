@@ -11,10 +11,10 @@
 import os
 from PIL import Image
 
-IMAGE_DIR = "Images/001/phon"
+IMAGE_DIR = "Images/negatives"
 
 images = [x.strip() for x in os.listdir(IMAGE_DIR)]
-MAX_HEIGHT = 800 # max height in pixels
+MAX_HEIGHT = 900 # max height in pixels
 
 for img_path in images:
     im = Image.open(os.path.join(IMAGE_DIR, img_path))
