@@ -32,15 +32,17 @@ To deactivate,
 (venv) $ deactivate
 ```
 
-#### Install requirements (Use `pip` instead of `pip3` if using virtualenv)-->
+#### Install requirements (Use `pip` instead of `pip3` if using virtualenv)
+-->
 **Requirements**  
 * Python 3
-* PIL
+* Python3 Tkinter
 
 **Recommended:** setup [virtualenv](https://packaging.python.org/guides/installing-using-pip-and-virtualenv/)  
 
 **Install requirements**
 ```
+$ sudo apt-get install python3 python3-tk
 $ pip3 install -r requirements.txt
 ```
 
